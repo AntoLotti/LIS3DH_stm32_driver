@@ -1,6 +1,8 @@
 #ifndef LIS3DH_DRIVER_H
 #define LIS3DH_DRIVER_H
 
+#include "stm32f4xx_hal.h"
+
 /**************************************************************************
     I2C ADDRESS/BITS (7 bits length; pg. 25/54)
 **************************************************************************/
@@ -10,10 +12,10 @@
 /**************************************************************************
     CONVERSION DELAY (in mS)
 **************************************************************************/
-#define LIS3DHTR_CONVERSIONDELAY    (100)   
+#define LIS3DHTR_CONVERSIONDELAY    (100)   //
 
 /**************************************************************************
-    ACCELEROMETER REGISTERS (pg. 31-31/54)
+    ACCELEROMETER REGISTERS (pg. 31-32/54)
 **************************************************************************/
 // directions [0x00-0x06] reserved
 #define LIS3DHTR_REG_ACCEL_STATUS_REG_AUX   (0x07)  // Status Register Auxiliar
@@ -60,5 +62,15 @@
 #define LIS3DHTR_REG_ACCEL_TIME_WINDOW      (0x3D)  // Click Time Window Register
 #define LIS3DH_ACT_THS                      (0x3E)  // 
 #define LIS3DH_ACT_DUR                      (0x3F)  // 
+
+/**************************************************************************
+    ACCELEROMETER STUCT
+**************************************************************************/
+typedef struct lis3dh_s
+{
+    I2C_HandleTypeDef *i2cHandle;   // I2C handle
+    float acc_mps2[3];              // Acceleration data [X,Y,Z] in m/s^2
+    float temp_deg;                 // Temperature data in degreds 
+}lis3dh_t;
 
 #endif /*LIS3DH_DRIVER_H*/
