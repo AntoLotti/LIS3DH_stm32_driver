@@ -1,5 +1,31 @@
 #include <lis3dh_driver.h>
 
+uint8_t lis3dh_init( lis3dh_t *dst, I2C_HandleTypeDef *i2cHandle )
+{
+    dst->i2cHandle      = i2cHandle;
+
+    dst->acc_mps2[0]    = 0.0f;
+    dst->acc_mps2[1]    = 0.0f;
+    dst->acc_mps2[2]    = 0.0f;
+
+    dst->temp_deg       = 0.0f
+
+    /* Check The Device */
+    //#TODO
+
+    /* Config The Sensor */
+    //#TODO
+}
+
+HAL_StatusTypeDef lis3dh_read_acc( lis3dh_t *dst )
+{
+
+}
+
+HAL_StatusTypeDef lis3dh_read_temp( lis3dh_t *dst)
+{
+
+}
 
 HAL_StatusTypeDef lis3dh_read_reg( lis3dh_t *dst, uint8_t reg, uint8_t *data )
 {
