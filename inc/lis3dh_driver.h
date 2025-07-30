@@ -2,6 +2,7 @@
 #define LIS3DH_DRIVER_H
 
 #include <stdint.h>
+#include <stdio.h>
 #include <stdbool.h>
 #include "stm32f4xx_hal.h"
 
